@@ -4,21 +4,26 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="product__title">Posts</h1>
   
   {{ content }}
 
-  <ul class="post-list">
+<!--  <ul class="post-list">-->
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
+<!--      <li>-->
+<!--        -->
+<!--&lt;!&ndash;        {{ post.excerpt }}&ndash;&gt;-->
+<!--      </li>-->
+      <div class="product">
+        <div class="product__information">
+          <h2>
+            <a class="product__description" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>,  <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+          </h2>
+          <p class="product__description">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+<!--  </ul>-->
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
 
